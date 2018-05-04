@@ -68,3 +68,4 @@ EOS6Gc6EorSpu19Bfd3WZ3qZCRvAswKJFeVYdxzwMRvgMcbyDsCfA
 //查看钱包中的密钥
 @ubuntu:~/eos-wallet$ cleos wallet keys
 ```
+下一篇[《EOS cleos 合约编译_发布_转账》](https://github.com/durongzheng/documents/blob/master/EOS%20cleos%20%E5%90%88%E7%BA%A6%E7%BC%96%E8%AF%91_%E5%8F%91%E5%B8%83_%E8%BD%AC%E8%B4%A6.md)
