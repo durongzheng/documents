@@ -38,8 +38,8 @@ cleos wallet create默认创建一个名为“default”的钱包
 ### 基本概念
 * 密钥：公钥(public key)、私钥(private key)是区块链应用的基础概念，请参阅相关的资料，网上多得很。私钥一定要离线保存，其安全性至关重要。
 * 账户：eos 的账户(account)概念在比特币等区块链应用中是没有的；eos是希望做成分布式的操作系统，所以它要考虑在应用中的权限管理问题，于是引入了账户概念。从我目前研究的情况来看，还不能确定账户管理对于应用开发究竟能够发挥什么作用？
-> 按照通常的理解，账户和密钥之间应该是有对应关系的，一个密钥对应该只能对应一个账户，但实际上，在eos中`密钥对和账户之间并没有严格的对应关系`。也就是说，可以用eosio的密钥对创建一个eosio.token账户，这两个账户的密钥对是相同的，却是两个不同的账户，只要解锁的钱包中有这个密钥对，那这两个账户的操作权限都可以使用。
-> 由于创建帐户时需要给owner,active两个公钥，不同账户的密钥之间甚至可以交叉，比如first账户的owner公钥，其实就是second账户的active公钥，这样创建帐户也是可以的。
+  * 按照通常的理解，账户和密钥之间应该是有对应关系的，一个密钥对应该只能对应一个账户，但实际上，在eos中`密钥对和账户之间并没有严格的对应关系`。也就是说，可以用eosio的密钥对创建一个eosio.token账户，这两个账户的密钥对是相同的，却是两个不同的账户，只要解锁的钱包中有这个密钥对，那这两个账户的操作权限都可以使用。<br>
+  * 由于创建帐户时需要给owner,active两个公钥，不同账户的密钥之间甚至可以交叉，比如first账户的owner公钥，其实就是second账户的active公钥，这样创建帐户也是可以的。
 ### 创建密钥及账户
 用默认账户eosio的公钥，eosio为创建者，创建一个eosio.token账号：
 ```c
@@ -58,3 +58,13 @@ Public key: EOS6Gc6EorSpu19Bfd3WZ3qZCRvAswKJFeVYdxzwMRvgMcbyDsCfA
 EOS6Gc6EorSpu19Bfd3WZ3qZCRvAswKJFeVYdxzwMRvgMcbyDsCfA
 ```
 可以看到，eosio.token的密钥跟eosio是相同的，first账户跟second账户的密钥对也是相同的(两个账户的owner和active都相同)，虽然实际工作环境一般不会这样做。感觉上这些地方就是eos不够严谨的地方，如果设置更加严谨一些的话，也许在应用中出错的可能性会更小。
+### 查看信息
+查看各种信息的命令如下：
+```c
+//查看账户信息
+@ubuntu:~/eos-wallet$ cleos get account eosio
+//查看有哪些钱包(已解锁的钱包名前边有*号)
+@ubuntu:~/eos-wallet$ cleos wallet list
+//查看钱包中的密钥
+@ubuntu:~/eos-wallet$ cleos wallet keys
+```
