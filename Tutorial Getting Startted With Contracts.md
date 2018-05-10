@@ -1,4 +1,4 @@
-Tutorial 智能合约入门 <br/>
+Tutorial 智能合约入门 
 ==================
 Rick Whitner 2018/5/6 编辑了这个页面 · 3修订
 
@@ -10,14 +10,14 @@ Rick Whitner 2018/5/6 编辑了这个页面 · 3修订
 * 创建一个钱包
 * 加载Bios合约
 * 创建帐户
-<br>
+
 本教程的第二部分将引导您创建和部署自己的合同。
 
 * eosio.token 合约
 * Exchange 合约
 * Hello World 合约
-<br>
-本教程假设您已经安装了EOSIO，并且*nodeos*和*cleos*已经在您的路径中。
+
+本教程假设您已经安装了EOSIO，并且`nodeos`和`cleos`已经在您的路径中。
 
 启动私有区块链
 ------------
