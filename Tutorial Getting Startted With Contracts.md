@@ -12,7 +12,7 @@ Rick Whitner 2018/5/6 编辑了这个页面 · 3修订
 * 加载Bios合约
 * 创建帐户
 
-本教程的第二部分将引导您创建和部署自己的合同。
+本教程的第二部分将引导您创建和部署自己的合同：
 
 * eosio.token 合约
 * Exchange 合约
@@ -41,7 +41,7 @@ nodeos --help
 ```
 创建一个钱包
 -----------
-钱包是一个私钥库，是在区块链上执行操作所必需的授权私钥库。这些密钥存储在您的磁盘上，并使用钱包密码进行加密。钱包密码应存储在安全的密码管理器中。
+钱包是一个私钥库，是在区块链上执行操作所必需的授权私钥库。这些密钥存储在您的磁盘上，并使用钱包密码进行加密。钱包密码应存储在安全的密码管理器中( *译者注：这个我们假定大家都是清楚明白的* :=))。
 ```cpp
 $ cleos wallet create
 Creating wallet: default
@@ -73,7 +73,7 @@ $ cleos wallet import –n default 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79
 -----------
 现在我们有一个钱包，并且加载了`eosio`帐户的密钥，我们可以设置一个默认的系统合约。为了开发的目的，可以使用默认的`eosio.bios`合约。通过此合约，您可以直接控制其他帐户的资源分配，并调用其他特权API。在公开区块链中，这个系统合约将管理其他账户的 `token` 抵押和解抵押操作，以为合约执行预留CPU、网络活动带宽，以及预留内存。
 
-eosio.bios合约可以在你的EOSIO源代码文件夹中找到:contracts/eosio.bios。下面的命令序列，都假定是在EOSIO源代码的根目录执行。但是您可以通过指定完整路径，从任意位置执行这些命令：`${EOSIO_SOURCE}/build/contracts/eosio.bios`。
+eosio.bios合约可以在你的EOSIO源代码文件夹中找到:`contracts/eosio.bios`。下面的命令序列，都假定是在EOSIO源代码的根目录执行。但是您可以通过指定完整路径，从任意位置执行这个命令：`${EOSIO_SOURCE}/build/contracts/eosio.bios`。
 ```cpp
 $ cleos set contract eosio build/contracts/eosio.bios -p eosio
 Reading WAST...
@@ -93,7 +93,7 @@ executed transaction: 414cf0dc7740d22474992779b2416b0eabdbc91522c16521307dd68205
 #         eosio <= eosio::setcode               {"account":"eosio","vmtype":0,"vmversion":0,"code":"0061736d0100000001ab011960037f7e7f0060057f7e7e7e...
 #         eosio <= eosio::setabi                {"account":"eosio","abi":{"types":[],"structs":[{"name":"set_account_limits","base":"","fields":[{"n...
 ```
-这可以理解为：由`eosio`账户合约定义的`setcode`操作，通过`eosio`账户给予的`{args...}`参数来执行。（*译者注：这句话有点绕。eos里边每个账户只能发布一个合约，所以它认为账户与合约是对应的，账户下可以没有合约，如果有则只能有一个。另外，这个合约发布也是用eosio账户的权限签名的。）
+这可以理解为：由`eosio`账户合约定义的`setcode`操作，通过`eosio`账户给予的`{args...}`参数来执行。（*译者注：这句话有点绕。eos里边每个账户只能发布一个合约，所以它认为账户与合约是对应的，账户下可以没有合约，如果有则只能有一个。另外，这个合约发布也是用eosio账户的权限签名的。*）
 ```cpp
 #         ${executor} <= ${contract}:${action} ${args...}
 > console output from this execution, if any
@@ -104,7 +104,7 @@ executed transaction: 414cf0dc7740d22474992779b2416b0eabdbc91522c16521307dd68205
 
 创建帐户
 -------
-现在我们已经建立了基本的系统合同，可以开始创建自己的账户。我们将创建两个帐户，`user`和`tester`，我们需要将密钥与每个帐户相关联。在这个例子中，两个帐户都使用相同的密钥。
+现在我们已经建立了基本的系统合同，可以开始创建自己的账户。我们将创建两个帐户，`user`和`tester`，我们需要将密钥与每个帐户相关联。在这个例子中，两个帐户都使用相同的密钥。( *译者注：从这里可以看出，eos里边账户和密钥对之间并没有严格的对应关系，A账户完全可以和B账户使用相同的的密钥对* )
 
 为此，我们首先为账户生成一个密钥。
 ```cpp
