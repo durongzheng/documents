@@ -121,7 +121,7 @@ executed transaction: 06d0a99652c11637230d08a207520bf38066b8817ef7cafaab2f0344aa
 ```
 ### 部署Exchange合同
 
-与上述示例类似，我们可以部署exchange合约。该exchange合同提供了创建和交易货币的功能。我们同样假定下面的命令是从EOSIO源代码的根目录运行的。
+与上述示例类似，我们可以部署exchange合约，该合约提供了创建和交易货币的功能。跟以前一样，我们假定下面的命令是从EOSIO源代码的根目录运行的。
 ```cpp
 $ cleos create account eosio exchange  EOS7ijWCBmoXBi3CgtK7DJxentZZeTkeUnaSDvyro9dq7Sd1C3dC4 EOS7ijWCBmoXBi3CgtK7DJxentZZeTkeUnaSDvyro9dq7Sd1C3dC4
 executed transaction: 4d38de16631a2dc698f1d433f7eb30982d855219e7c7314a888efbbba04e571c  364 bytes  1000 cycles
